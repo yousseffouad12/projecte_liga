@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>La Liga - Exercici 3</title>
+</head>
+<body>
+    <h1>Llistat d'Equips (Django)</h1>
+    <hr>
+    {% for equip in equips %}
+        <p>
+            <b>Nom:</b> {{ equip.nombre }} - 
+            <b>Entrenador:</b> {{ equip.entrenador }} - 
+            <b>Puesto:</b> {{ equip.puesto }} - 
+            <b>Jugadors:</b> 
+            {% for j in equip.jugadores.all %}
+                {{ j.nombre }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    {% endfor %}
+</body>
+</html>
